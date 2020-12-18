@@ -25,25 +25,6 @@ function createRow() {
     var hour = $("<div>");
     row.addClass("hour col-auto");
     row.text("     " + hoursArray[i] + "     ");
-    // if( hoursArray[i] < timeNow){
-    //     textArea.addClass("past");
-    // }else if(hoursArray[i] > timeNow){
-    //     textArea.addClass("future");
-    // }else()
-
-    //    row.addClass("hour col-auto");
-    //    row.text("     " + hoursArray[i] + "     ");
-
-    // IF hoursArray[i] < timeNow
-    // Add a class of "past"
-    // ELSE IF hoursArray is the same as (or equal to) timeNow
-    // Add a class of "current"
-    // ELSE (hoursArray[i] > timeNow)
-    // Add a class of "future"
-
-    //     if(hoursArray[i] === timeNow )
-
-    // if/else  x3 for past present and future
 
     var textArea = $("<textarea>");
     textArea.addClass("description col");
@@ -54,6 +35,10 @@ function createRow() {
     // row.append(button);
     row.append(hour).append(textArea).append(button);
     $(".container").append(row);
+    if (hoursArray[i] === timeNow) {
+      textArea.addClass("present");
+    } else hoursArray[i] > timeNow;
+    textArea.addClass("future");
   }
 }
 
@@ -63,3 +48,16 @@ createRow();
 // createRow();
 // check font awesome version, make sure linked to html
 // add to button <button class="trigger"></button></button></button><i class="fas fa-camera"></i></button>
+//    row.addClass("hour col-auto");
+//    row.text("     " + hoursArray[i] + "     ");
+
+// IF hoursArray[i] < timeNow
+// Add a class of "past"
+// ELSE IF hoursArray is the same as (or equal to) timeNow
+// Add a class of "current"
+// ELSE (hoursArray[i] > timeNow)
+// Add a class of "future"
+
+//     if(hoursArray[i] === timeNow )
+
+// if/else  x3 for past present and future
