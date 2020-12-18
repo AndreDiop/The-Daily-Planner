@@ -10,35 +10,52 @@ var hoursArray = [
   "1600",
   "1700",
 ];
-var presentTime = moment();
 
-for (var i = 0; i < hoursArray.length; i++) {
-  console.log(hoursArray[i]);
-}
+var timeNow = moment().format("HHmm");
+
+console.log(timeNow);
 
 function createRow() {
-  var row = $("<div>");
-  row.addClass("row time-block");
+  for (var i = 0; i < hoursArray.length; i++) {
+    console.log(hoursArray[i]);
 
-  var hour = $("<div>");
-  row.addClass("hour col-auto");
-  row.text("     "+hoursArray[0]+"     ");
-  row.append(hour);
+    var row = $("<div>");
+    row.addClass("row time-block " + hoursArray[i]);
 
-  var textArea = $("<textarea>");
-  textArea.addClass("description col-10");
-  row.append(textArea);
+    var hour = $("<div>");
+    row.addClass("hour col-auto");
+    row.text("     " + hoursArray[i] + "     ");
+    
 
-  var button = $("<button>");
-  button.addClass("saveBtn btn col");
-  button.text("Save Info");
-  row.append(button);
+    //    row.addClass("hour col-auto");
+    //    row.text("     " + hoursArray[i] + "     ");
 
-  $(".container").append(row);
+    // IF hoursArray[i] < timeNow
+    // Add a class of "past"
+    // ELSE IF hoursArray is the same as (or equal to) timeNow
+    // Add a class of "current"
+    // ELSE (hoursArray[i] > timeNow)
+    // Add a class of "future"
+
+    //     if(hoursArray[i] === timeNow )
+
+    // if/else  x3 for past present and future
+
+    var textArea = $("<textarea>");
+    textArea.addClass("description col");
+
+    var button = $("<button>");
+    button.addClass("saveBtn btn col-auto");
+    button.text("Save Info");
+    // row.append(button);
+    row.append(hour).append(textArea).append(button);
+    $(".container").append(row);
+  }
 }
 
 createRow();
 
-// add some content
-
-// append to the document
+// [1, 2, 3, 4, 5, 6, 7, 8, 9].forEach(createRow);
+// createRow();
+// check font awesome version, make sure linked to html
+// add to button <button class="trigger"></button></button></button><i class="fas fa-camera"></i></button>
