@@ -6,7 +6,13 @@ var date = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
 var hour = $("<div>");
 var eventEl = localStorage.getItem(textArea);
 
+
+
+$("#currentDay").text(date);
+
 console.log(date);
+
+
 function createRow() {
   for (var i = 0; i < hoursArray.length; i++) {
     var row = $("<div>");
@@ -37,6 +43,3 @@ function createRow() {
 
 createRow();
 
-button.on("click", function (event) {
-  event.preventDefault();
-});
