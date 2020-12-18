@@ -1,7 +1,10 @@
 var hoursArray = ["09", "10", "11", "12", "13", "14", "15", "16", "17"];
-
+var textArea = $("<textarea>");
+var button = $("<button>");
 var timeNow = moment().format("HH");
 var date = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
+var hour = $("<div>");
+var eventEl = localStorage.getItem(textArea);
 
 console.log(date);
 function createRow() {
@@ -9,14 +12,14 @@ function createRow() {
     var row = $("<div>");
     row.addClass("row time-block " + hoursArray[i]);
 
-    var hour = $("<div>");
+    hour = $("<div>");
     row.addClass("hour col-auto");
     row.text("     " + hoursArray[i] + "00   ");
 
-    var textArea = $("<textarea>");
+    textArea = $("<textarea>");
     textArea.addClass("description col");
 
-    var button = $("<button>");
+    button = $("<button>");
     button.addClass("saveBtn btn col-auto fas fa-save");
     button.text("Save");
 
@@ -31,5 +34,9 @@ function createRow() {
     }
   }
 }
-$("#currentDay").text(date);
+
 createRow();
+
+button.on("click", function (event) {
+  event.preventDefault();
+});
