@@ -25,7 +25,11 @@ function createRow() {
     var hour = $("<div>");
     row.addClass("hour col-auto");
     row.text("     " + hoursArray[i] + "     ");
-    
+    // if( hoursArray[i] < timeNow){
+    //     textArea.addClass("past");
+    // }else if(hoursArray[i] > timeNow){
+    //     textArea.addClass("future");
+    // }else()
 
     //    row.addClass("hour col-auto");
     //    row.text("     " + hoursArray[i] + "     ");
