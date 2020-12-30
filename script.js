@@ -5,8 +5,14 @@ var timeNow = moment().format("HH");
 var date = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
 var hour = $("<div>");
 var eventEl = localStorage.getItem(textArea);
+var inputArray = [];
 
 $("#currentDay").text(date);
+
+// $(document).ready(initialize){
+
+
+// }
 
 function createRow() {
   for (var i = 0; i < hoursArray.length; i++) {
@@ -34,5 +40,11 @@ function createRow() {
     }
   }
 }
-
 createRow();
+
+$(".saveBtn").on("click", function () {
+  console.log("This works");
+  input = $(".description").val();
+  inputArray.push(input);
+  localStorage.setItem("User Input", JSON.stringify(inputArray));
+});
